@@ -1,0 +1,394 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/poojavjpy/Python-Programs-for-beginners/blob/main/NumPy\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "aef1100f",
+      "metadata": {
+        "id": "aef1100f"
+      },
+      "source": [
+        "# NumPy Mathematical Operations on a Dataset\n",
+        "\n",
+        "\n",
+        "**Question:** Develop a NumPy solution that uses universal functions and array operations to perform mathematical computations efficiently on a large dataset.\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "7ea0f62f",
+      "metadata": {
+        "execution": {
+          "iopub.execute_input": "2026-11-21T05:41:07.217066Z",
+          "iopub.status.busy": "2026-11-21T05:41:07.216853Z",
+          "iopub.status.idle": "2026-11-21T05:41:07.221496Z",
+          "shell.execute_reply": "2026-11-21T05:41:07.220800Z"
+        },
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7ea0f62f",
+        "outputId": "fc85e950-9a3e-4f4e-8638-62137372f9bb"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "NumPy is ready!\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "print(\"NumPy is ready!\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "2f7a55ae",
+      "metadata": {
+        "id": "2f7a55ae"
+      },
+      "source": [
+        "## Program 1 — Basic calculations on an array\n",
+        "An array stores several numbers. Adding or multiplying a number applies the operation to **every element**."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "895e9ccd",
+      "metadata": {
+        "execution": {
+          "iopub.execute_input": "2026-11-21T05:41:07.223396Z",
+          "iopub.status.busy": "2026-11-21T05:41:07.223229Z",
+          "iopub.status.idle": "2026-11-21T05:41:07.227285Z",
+          "shell.execute_reply": "2026-11-21T05:41:07.226792Z"
+        },
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "895e9ccd",
+        "outputId": "69948f6e-d2b0-4170-94e6-18a3a988d73c"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Original marks: [40 50 60 70 80]\n",
+            "Add 5 marks: [45 55 65 75 85]\n",
+            "Double marks: [ 80 100 120 140 160]\n"
+          ]
+        }
+      ],
+      "source": [
+        "marks = np.array([40, 50, 60, 70, 80])\n",
+        "print(\"Original marks:\", marks)\n",
+        "print(\"Add 5 marks:\", marks + 5)\n",
+        "print(\"Double marks:\", marks * 2)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "d0b5d548",
+      "metadata": {
+        "id": "d0b5d548"
+      },
+      "source": [
+        "## Program 2 — Calculate 10% of each value\n",
+        "**Mathematics:** 10% of x = x × 10 / 100."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "eddf3195",
+      "metadata": {
+        "execution": {
+          "iopub.execute_input": "2026-11-21T05:41:07.228593Z",
+          "iopub.status.busy": "2026-11-21T05:41:07.228483Z",
+          "iopub.status.idle": "2026-11-21T05:41:07.232358Z",
+          "shell.execute_reply": "2026-11-21T05:41:07.231503Z"
+        },
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eddf3195",
+        "outputId": "8c7a141b-f498-4d0f-ae42-a3fe5a23a662"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Prices: [100 200 300 400 500]\n",
+            "10% discount: [10. 20. 30. 40. 50.]\n",
+            "After discount: [ 90. 180. 270. 360. 450.]\n"
+          ]
+        }
+      ],
+      "source": [
+        "prices = np.array([100, 200, 300, 400, 500])\n",
+        "discount = prices * 10 / 100\n",
+        "print(\"Prices:\", prices)\n",
+        "print(\"10% discount:\", discount)\n",
+        "print(\"After discount:\", prices - discount)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "31302a89",
+      "metadata": {
+        "id": "31302a89"
+      },
+      "source": [
+        "## Program 3 — Simple universal functions (ufuncs)\n",
+        "`np.abs()` removes the negative sign; `np.sqrt()` gives square roots; `np.round()` rounds values to the nearest integer (ties to even)."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "2a913c9d",
+      "metadata": {
+        "execution": {
+          "iopub.execute_input": "2026-11-21T05:41:07.234065Z",
+          "iopub.status.busy": "2026-11-21T05:41:07.233689Z",
+          "iopub.status.idle": "2026-11-21T05:41:07.238013Z",
+          "shell.execute_reply": "2026-11-21T05:41:07.237437Z"
+        },
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2a913c9d",
+        "outputId": "00883d82-110e-4497-f8de-e509cd763732"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Absolute values: [4 2 0 2 4]\n",
+            "Square roots: [2. 3. 4. 5.]\n",
+            "Rounded values: [2. 4. 5.]\n"
+          ]
+        }
+      ],
+      "source": [
+        "numbers = np.array([-4, -2, 0, 2, 4])\n",
+        "print(\"Absolute values:\", np.abs(numbers))\n",
+        "squares = np.array([4, 9, 16, 25])\n",
+        "print(\"Square roots:\", np.sqrt(squares))\n",
+        "decimals = np.array([2.3, 3.8, 5.1])\n",
+        "print(\"Rounded values:\", np.round(decimals))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "0539665b",
+      "metadata": {
+        "id": "0539665b"
+      },
+      "source": [
+        "## Program 4 — Find total, average, maximum and minimum\n",
+        "These operations help summarize a dataset."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "a9a49704",
+      "metadata": {
+        "execution": {
+          "iopub.execute_input": "2026-11-21T05:41:07.239378Z",
+          "iopub.status.busy": "2026-11-21T05:41:07.239210Z",
+          "iopub.status.idle": "2026-11-21T05:41:07.242626Z",
+          "shell.execute_reply": "2026-11-21T05:41:07.242083Z"
+        },
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "a9a49704",
+        "outputId": "566ab01d-185c-4af1-898c-478159e4fcae"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Sales: [120 150 100 180 200]\n",
+            "Total sales: 750\n",
+            "Average sales: 150.0\n",
+            "Highest sale: 200\n",
+            "Lowest sale: 100\n"
+          ]
+        }
+      ],
+      "source": [
+        "sales = np.array([120, 150, 100, 180, 200])\n",
+        "print(\"Sales:\", sales)\n",
+        "print(\"Total sales:\", np.sum(sales))\n",
+        "print(\"Average sales:\", np.mean(sales))\n",
+        "print(\"Highest sale:\", np.max(sales))\n",
+        "print(\"Lowest sale:\", np.min(sales))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "95b49c6f",
+      "metadata": {
+        "id": "95b49c6f"
+      },
+      "source": [
+        "## Program 5 — A simple shop example\n",
+        "Quantity × price gives the amount for each product. NumPy calculates all amounts in one line."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "c58a4699",
+      "metadata": {
+        "execution": {
+          "iopub.execute_input": "2026-11-21T05:41:07.244072Z",
+          "iopub.status.busy": "2026-11-21T05:41:07.243959Z",
+          "iopub.status.idle": "2026-11-21T05:41:07.247105Z",
+          "shell.execute_reply": "2026-11-21T05:41:07.246618Z"
+        },
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "c58a4699",
+        "outputId": "2f7f4cb5-b2dd-4937-f5bb-1dc3052776d8"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Quantity: [2 3 1 4 2]\n",
+            "Price: [ 50  30 100  20  60]\n",
+            "Amount for each product: [100  90 100  80 120]\n",
+            "Total bill: 490\n"
+          ]
+        }
+      ],
+      "source": [
+        "quantity = np.array([2, 3, 1, 4, 2])\n",
+        "price = np.array([50, 30, 100, 20, 60])\n",
+        "amount = quantity * price\n",
+        "print(\"Quantity:\", quantity)\n",
+        "print(\"Price:\", price)\n",
+        "print(\"Amount for each product:\", amount)\n",
+        "print(\"Total bill:\", np.sum(amount))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "8972d531",
+      "metadata": {
+        "id": "8972d531"
+      },
+      "source": [
+        "## Program 6 — The same idea on a larger dataset\n",
+        "`np.arange(1, 1001)` creates numbers from **1 to 1000**. We do not print all 1000 values, only a few results. This shows how one NumPy instruction works on a large array."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "05d15ee9",
+      "metadata": {
+        "execution": {
+          "iopub.execute_input": "2026-11-21T05:41:07.248351Z",
+          "iopub.status.busy": "2026-11-21T05:41:07.248216Z",
+          "iopub.status.idle": "2026-11-21T05:41:07.251695Z",
+          "shell.execute_reply": "2026-11-21T05:41:07.251204Z"
+        },
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "05d15ee9",
+        "outputId": "ed18b43d-1887-45f3-edd2-6436967e0a45"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Number of values: 1000\n",
+            "First 10 original values: [ 1  2  3  4  5  6  7  8  9 10]\n",
+            "First 10 doubled values: [ 2  4  6  8 10 12 14 16 18 20]\n",
+            "Total of original values: 500500\n",
+            "Average: 500.5\n"
+          ]
+        }
+      ],
+      "source": [
+        "data = np.arange(1, 1001)\n",
+        "result = data * 2\n",
+        "print(\"Number of values:\", data.size)\n",
+        "print(\"First 10 original values:\", data[:10])\n",
+        "print(\"First 10 doubled values:\", result[:10])\n",
+        "print(\"Total of original values:\", np.sum(data))\n",
+        "print(\"Average:\", np.mean(data))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "172ff3a8",
+      "metadata": {
+        "id": "172ff3a8"
+      },
+      "source": [
+        "## Student Practice\n",
+        "1. In Program 1, add **10** instead of 5.\n",
+        "2. In Program 2, calculate a **20%** discount.\n",
+        "3. In Program 3, find square roots of **[1, 36, 49, 64]**.\n",
+        "4. In Program 4, change the sales numbers and find the new average.\n",
+        "5. In Program 6, create numbers from **1 to 2000** and multiply each by 3.\n",
+        "\n",
+        "### Key takeaway\n",
+        "NumPy can perform mathematical operations on every element of an array **without writing a separate calculation for each value**."
+      ]
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.13.5"
+    },
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
